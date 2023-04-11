@@ -1,6 +1,6 @@
 # lifecycle
 
-Describe life cycle of the widget.
+Describe the life cycle of the stateful widget.
 
 ## Getting Started
 
