@@ -57,7 +57,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -79,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     print("***** init state *****");
   }
 
@@ -113,6 +114,13 @@ class _MyHomePageState extends State<MyHomePage> {
       _init();
     }*/
   }
+
+  /// didChangeMetrics
+  /*
+   Called when the application's dimensions change. For example, when a phone is rotated.
+  */
+  @override
+  void didChangeMetrics() {}
 
   @override
   Widget build(BuildContext context) {
@@ -159,6 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
 */
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
