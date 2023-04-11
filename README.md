@@ -15,6 +15,11 @@ The lifecycle has the following simplified steps:
 9. dispose()
 10. mounted == false
 
+### Create state ###
+When Flutter is instructed to build a StatefulWidget,
+it immediately calls createState(). This method must exist.
+A StatefulWidget rarely needs to be more complicated than this.
+
 
 - [Reference documentation](https://flutterbyexample.com/lesson/stateful-widget-lifecycle#4-didChangeDependencies)
   For help getting started with Flutter development, view the
