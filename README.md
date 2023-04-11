@@ -3,7 +3,9 @@
 Describe life cycle of the widget.
 
 ## Getting Started
+
 The lifecycle has the following simplified steps:
+
 1. createState()
 2. mounted == true
 3. initState()
@@ -15,11 +17,16 @@ The lifecycle has the following simplified steps:
 9. dispose()
 10. mounted == false
 
-### Create state ###
+<details>
+<summary>
+Create state
+</summary>
+<p>
 When Flutter is instructed to build a StatefulWidget,
 it immediately calls createState(). This method must exist.
 A StatefulWidget rarely needs to be more complicated than this.
-
+</p>
+</details>
 
 - [Reference documentation](https://flutterbyexample.com/lesson/stateful-widget-lifecycle#4-didChangeDependencies)
   For help getting started with Flutter development, view the
