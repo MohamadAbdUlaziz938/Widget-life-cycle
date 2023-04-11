@@ -16,9 +16,9 @@ The lifecycle has the following simplified steps:
 8. deactivate()
 9. dispose()
 10. mounted == false
-
-<details>
-<summary style="color:red">
+## Details
+1. <details>
+<summary>
 Create state
 </summary>
 <p>
