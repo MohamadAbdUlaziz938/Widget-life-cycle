@@ -18,7 +18,7 @@ The lifecycle has the following simplified steps:
 10. mounted == false
 
 <details>
-<summary>
+<summary style="color:red">
 Create state
 </summary>
 <p>
