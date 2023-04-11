@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:lifecycle/child_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -146,12 +147,20 @@ class _MyHomePageState extends State<MyHomePage> {
   but it might be reinserted before the current frame change is finished.
   This method exists basically because State objects can be moved from one point in a tree to another
   */
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
 
   /// 9- dispose
 /*
    dispose()' is called when the State object is removed, which is permanent.
    This method is where to unsubscribe and cancel all animations, streams, etc.
 */
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   /// 10. mounted is false
 /*
@@ -166,52 +175,3 @@ However, didChangeDependencies is called just a few moments after the state load
 However both of them are called before build is called.
 The only difference is that one is called before the state loads its dependencies and the other is called a few moments after the state loads its dependencies.
 */
-class ChildWidget extends StatefulWidget {
-  const ChildWidget({Key? key, required this.counter}) : super(key: key);
-  final int counter;
-
-  @override
-  State<ChildWidget> createState() => _ChildWidgetState();
-}
-
-class _ChildWidgetState extends State<ChildWidget> {
-  @override
-  void initState() {
-    super.initState();
-    if (kDebugMode) {
-      print("----- ChildWidget init state");
-    }
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (kDebugMode) {
-      print("----- ChildWidget didChangeDependencies");
-    }
-    // will rebuild the widget after perform this function.
-    // check orientation, has focus ...
-  }
-
-  @override
-  void didUpdateWidget(covariant ChildWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.counter == widget.counter-1) {
-      if (kDebugMode) {
-        print("----- ChildWidget didUpdateWidget ---> widgets are equal");
-      }
-    } else {
-      if (kDebugMode) {
-        print("----- ChildWidget didUpdateWidget");
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    print("----- rebuild ChildWidget");
-    return Center(
-      child: Text("Counter ${widget.counter}"),
-    );
-  }
-}
