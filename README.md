@@ -17,7 +17,7 @@ The lifecycle has the following simplified steps:
 9. dispose()
 10. mounted == false
 ## Details
-1. <details>
+<details>
 <summary>
 Create state
 </summary>
